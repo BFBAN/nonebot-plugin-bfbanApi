@@ -1,10 +1,10 @@
-from nonebot_plugin_bfbanApi.core.Http import Http
+from src.plugins.core.Http import Http
 
 http = Http()
 
 def statistics():
-    return http.post("a")
+    return http.post("statistics")
 
 
 def activities():
-    return http.post("b")
+    return http.post("activities")

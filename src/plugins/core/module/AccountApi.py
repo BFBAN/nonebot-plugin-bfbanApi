@@ -1,4 +1,5 @@
-from src.plugins.core.BaseBFbanPackage import BaseBFbanPackage
+from src.plugins.core.module.BaseBFbanPackage import BaseBFbanPackage, BaseApiList
+from src.plugins.core.module.user.login import login, logout
 
 """
 账户接口，需权限
@@ -6,7 +7,6 @@ from src.plugins.core.BaseBFbanPackage import BaseBFbanPackage
 
 
 class AccountApi(BaseBFbanPackage):
-    accountApi = {}
-
     def __init__(self):
-        self.API.update(self.accountApi)
+        self.API.user.login = login
+        self.API.user.logout = logout

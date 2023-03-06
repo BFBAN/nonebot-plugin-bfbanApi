@@ -1,3 +1,6 @@
+from src.plugins.classs.captcha import CaptchaData
+
+
 class BaseUserData:
     """
     基本用户类
@@ -37,3 +40,12 @@ class PlayerData(BaseUserData):
     status = 0
     createTime = ""
     updateTime = ""
+
+
+class SigninData:
+    """
+    用户登录
+    """
+    username = ""
+    password = ""
+    captcha = CaptchaData()

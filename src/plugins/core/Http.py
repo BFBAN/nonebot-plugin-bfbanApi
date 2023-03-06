@@ -1,22 +1,15 @@
+import httpx as httpx
+
 from src.plugins.core.BaseResult import BaseResult
 from src.plugins.core.InterfaceInfo import InterfaceInfo
 
-
 class Http:
-    @staticmethod
-    def request(name) -> BaseResult:
-        url_info = InterfaceInfo()
-        url_info.url = name
+    def post(self, name, data = {}) -> BaseResult:
+        url_info = InterfaceInfo(name)
+        result = httpx.post(url_info.address(), data=data).json()
+        return BaseResult(code=result.code, susses=result.susses)
 
-        print(url_info.address())
-
-        return BaseResult({
-            "code": "back.error",
-            "error": 1
-        })
-
-    def post(self, name) -> BaseResult:
-        return self.request(name)
-
-    def get(self, name) -> BaseResult:
-        return self.request(name)
+    def get(self, name, params) -> BaseResult:
+        url_info = InterfaceInfo(name)
+        result = httpx.get(url_info.address(), params=params).json()
+        return BaseResult(code=result.code, susses=result.susses)

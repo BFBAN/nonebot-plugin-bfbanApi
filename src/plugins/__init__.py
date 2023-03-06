@@ -14,7 +14,8 @@ class BfbanInit(PublicApi, AccountApi):
     __debug = False
 
     def __init__(self):
-        return None
+        PublicApi.__init__(self)
+        AccountApi.__init__(self)
 
     def token(self, value) -> bool:
         """

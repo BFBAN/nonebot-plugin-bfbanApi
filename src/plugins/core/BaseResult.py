@@ -19,8 +19,13 @@ class BaseResult(object):
     """
     message = ""
 
-    def __init__(self, data):
-        self.code = data.code
-        self.error = data.error
-        self.susses = data.susses
-        self.message = data.message
+    def __init__(self, data=None):
+        if data:
+            if data.code:
+                self.code = data.code
+            if data.error:
+                self.error = data.error
+            if data.susses:
+                self.susses = data.susses
+            if data.message:
+                self.message = data.message
